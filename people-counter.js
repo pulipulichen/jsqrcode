@@ -58,8 +58,10 @@ var init_google_analytics = function (_callback) {
 
 init_template = function () {
     $("#template_header_title").html(CONFIG.template.header_title);
-    $("#template_body_title").html(CONFIG.template.body_title);;
-    $("#template_report_url").attr("href", CONFIG.template.report_url);
+    $("#template_body_title").html(CONFIG.template.body_title);
+    
+    $("#template_realtime_report_url").attr("href", CONFIG.template.realtime_report_url);
+    $("#template_daily_report_url").attr("href", CONFIG.template.daily_report_url);
 
     if (CONFIG.counter.default_enable === true) {
         //$('#counter_enable').removeAttr("disabled");

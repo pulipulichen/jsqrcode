@@ -17,12 +17,13 @@ CONFIG = {
          * 預設是否啟動
          * @type Boolean
          */
-        "default_enable": true
+        "default_enable": false
     },
     "template": {
         "header_title": "People Counter",
         "body_title": "People Counter",
-        "report_url": "https://analytics.google.com/analytics/web/#realtime/rt-event/a37178375w162673487p163637193/"
+        "realtime_report_url": "https://analytics.google.com/analytics/web/#realtime/rt-event/a37178375w162673487p163637193/",
+        "daily_report_url": "https://analytics.google.com/analytics/web/#my-reports/bmRPe3mcSuSlb66paFMQ-A/a37178375w162673487p163637193/"
     },
     "google_analytics": {
         "track_id": "UA-37178375-9",
