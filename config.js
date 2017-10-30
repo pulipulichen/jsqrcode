@@ -4,7 +4,7 @@ CONFIG = {
          * QR Code的關鍵字
          * @type String
          */
-        "keyword": "pass",
+        "keyword": 0,
         
         /**
          * 檢查的間隔
@@ -20,10 +20,14 @@ CONFIG = {
         "default_enable": false,
         
         "zoom": {
-            width: 100,
-            height: 100,
-            x_offset: 250,
-            y_offset: 185
+            //width: 140,
+            //height: 120,
+            //x_offset: 240,
+            //y_offset: 175
+            width: 320,
+            height: 240,
+            x_offset: 0,
+            y_offset: 0
         }
     },
     "template": {

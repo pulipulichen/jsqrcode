@@ -6,6 +6,9 @@ This is a port of ZXing qrcode scanner, http://code.google.com/p/zxing.
 
 For webcam qrcode decoding (included in the test.html) you will need a browser with getUserMedia (WebRTC) capability.
 
+# TODO
+結論是，改成用Barcode會比較容易辨識，會準很多。但是還是受限於Webcam的能力。
+
 # Google Analytics
 - 即時事件：https://analytics.google.com/analytics/web/#realtime/rt-event/a37178375w162673487p163637193/
 - 自訂報表：https://analytics.google.com/analytics/web/#my-reports/bmRPe3mcSuSlb66paFMQ-A/a37178375w162673487p163637193/
