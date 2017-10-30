@@ -11,9 +11,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <script src="lib/jquery/jquery.js"></script>
+        
+        <script src="config.js"></script>
         <script src="people-counter.js"></script>
 
-        <title class="">Web QR</title>
+        <title id="template_header_title">Web QR</title>
 
         <style type="text/css">
         </style>
@@ -28,9 +30,9 @@
         <div id="main">
             <div id="header">
                 <p id="mp1">
-                    QR Code scanner
-                    <img class="selector" id="webcamimg" src="lib/webqr/vid.png" onclick="setwebcam()" align="left" style="display: none;" />
-                    <img class="selector" id="qrimg" src="lib/webqr/cam.png" onclick="setimg()" align="right" style="display: none;"/>
+                <h1 id="template_body_title">People Counter</h1>
+                <img class="selector" id="webcamimg" src="lib/webqr/vid.png" onclick="setwebcam()" align="left" style="display: none;" />
+                <img class="selector" id="qrimg" src="lib/webqr/cam.png" onclick="setimg()" align="right" style="display: none;"/>
                 </p>
             </div>
             <div id="mainbody">
@@ -40,6 +42,8 @@
                         <input type="checkbox" name="counter_enable" id="counter_enable" disabled="disabled">
                         Enable Counter
                     </label>
+                    <a href="" target="report" id="template_report_url">Report</a>
+                    <div id="people_counter">0</div>
                 </div>
                 <pre id="log"></pre>
             </div>

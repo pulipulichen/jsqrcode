@@ -1,21 +1,8 @@
 $(function () {
-    load(function (_message) {
-        var _timestamp = get_timestamp();
-        //console.log(_timestamp + " " + _message);
-        push_to_log(_timestamp + " " + _message);
-        
-        // -------------------
-        
-        if (_message === false) {
-            $('#counter_enable').attr('disabled', 'disabled');
-        }
-        else {
-            $('#counter_enable').removeAttr('disabled');
-        }
-        
-        // -------------------
-        
-    });
+    init_google_analytics(function () {
+        init_template();
+        init_webqr();
+    }); // setup_ga(function () {
 });
 
 var get_timestamp = function () {
@@ -41,3 +28,85 @@ var push_to_log = function (_log) {
     _show_log.reverse();
     $("#log").html(_show_log.join("\n"));
 };
+
+var init_google_analytics = function (_callback) {
+    // <!-- Global site tag (gtag.js) - Google Analytics -->
+    // <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37178375-9"></script>
+    
+    /*
+    var _url  = "https://www.googletagmanager.com/gtag/js?id=" + CONFIG.google_analytics.track_id;
+    $.getScript(_url, function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        ga('require', 'displayfeatures');
+        gtag('config', CONFIG.google_analytics.track_id);
+        
+        _callback();
+    });
+    */
+    $.getScript("https://www.google-analytics.com/analytics.js", function () {
+        ga('create', CONFIG.google_analytics.track_id);
+        ga('send', 'pageview');
+        _callback();
+    });
+        
+};
+
+init_template = function () {
+    $("#template_header_title").html(CONFIG.template.header_title);
+    $("#template_body_title").html(CONFIG.template.body_title);;
+    $("#template_report_url").attr("href", CONFIG.template.report_url);
+
+    if (CONFIG.counter.default_enable === true) {
+        //$('#counter_enable').removeAttr("disabled");
+        $('#counter_enable').attr("checked", "checked")
+    }
+};
+
+init_webqr = function () {
+    LAST_STATUS = true;
+    load(function (_message) {
+        var _timestamp = get_timestamp();
+        //console.log(_timestamp + " " + _message);
+        var _log_message = "empty";
+        if (_message === false) {
+            _log_message = "block";
+        }
+        push_to_log(_timestamp + " " + _log_message);
+
+        // -------------------
+
+        if (_message === false) {
+            $('#counter_enable').attr('disabled', 'disabled');
+        } else {
+            $('#counter_enable').removeAttr('disabled');
+        }
+
+        // -------------------
+
+        if ($('#counter_enable:checked').length > 0) {
+            if (_message === false) {
+                if (LAST_STATUS === true) {
+                    ga("send", "event", "count", "add");
+                    console.log("ga");
+                    add_people_counter();
+                }
+
+                LAST_STATUS = false;
+            } else {
+                LAST_STATUS = true;
+            }
+        }
+    }, CONFIG.counter.check_interval);
+};
+
+PEOPLE_COUNTER = 0;
+var add_people_counter = function () {
+    PEOPLE_COUNTER++;
+    //console.log(PEOPLE_COUNTER);
+    $("#people_counter").html(PEOPLE_COUNTER);
+}
