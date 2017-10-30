@@ -17,7 +17,7 @@ CONFIG = {
          * 預設是否啟動
          * @type Boolean
          */
-        "default_enable": false
+        "default_enable": true
     },
     "template": {
         "header_title": "People Counter",

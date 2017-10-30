@@ -82,13 +82,17 @@ init_webqr = function () {
 
         if (_message === false) {
             $('#counter_enable').attr('disabled', 'disabled');
+            if ($('#counter_enable input:checkbox:checked').length === 0) {
+                $("#counter_enable_message").addClass("visible");
+            }
         } else {
             $('#counter_enable').removeAttr('disabled');
+            $("#counter_enable_message").removeClass("visible");
         }
 
         // -------------------
 
-        if ($('#counter_enable:checked').length > 0) {
+        if ($('#counter_enable input:checkbox:checked').length > 0) {
             if (_message === false) {
                 if (LAST_STATUS === true) {
                     ga("send", "event", "count", "add");
@@ -107,6 +111,7 @@ init_webqr = function () {
 PEOPLE_COUNTER = 0;
 var add_people_counter = function () {
     PEOPLE_COUNTER++;
+    //PEOPLE_COUNTER = PEOPLE_COUNTER + 5000;
     //console.log(PEOPLE_COUNTER);
     $("#people_counter").html(PEOPLE_COUNTER);
 }

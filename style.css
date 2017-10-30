@@ -5,12 +5,14 @@ body{
 img{
     border:0;
 }
+/*
 #main{
     margin: 15px auto;
     background:white;
     overflow: auto;
 	width: 100%;
 }
+*/
 #header{
     background:white;
     margin-bottom:15px;
@@ -61,8 +63,8 @@ img{
 {
     width:320px;
     height:240px;
-	border: solid;
-	border-width: 3px 3px 3px 3px;
+    /*border: solid;*/
+    border-width: 3px 3px 3px 3px;
 }
 #result{
     border: solid;
@@ -92,4 +94,39 @@ li a{
 }
 .tsel{
     padding:0;
+}
+
+.switch__input, .switch__toggle, .switch__handle {
+    cursor: pointer !important;
+}
+
+#template_report_url {
+    text-decoration: none;
+}
+
+#people_counter {
+    font-size: xx-large;
+    /*border-radius: 50%;*/
+    padding: 8px;
+}
+
+#outdiv video {
+    margin-left: calc(50vw - 160px);
+}
+
+#outdiv {
+    margin-bottom: 8px;
+}
+
+#counter_enable_message {
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+#counter_enable_message.visible {
+    opacity: 1;
 }

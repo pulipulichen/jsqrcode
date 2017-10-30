@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta name="description" content="QR Code People Counter" />
@@ -15,7 +15,7 @@
         <script src="config.js"></script>
         <script src="people-counter.js"></script>
 
-        <title id="template_header_title">Web QR</title>
+        <title id="template_header_title">People Counter</title>
 
         <style type="text/css">
         </style>
@@ -23,34 +23,49 @@
         <script type="text/javascript" src="lib/webqr/llqrcode.js"></script>
         <script type="text/javascript" src="lib/webqr/webqr.js"></script>
 
-
+        <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.min.css">
+        <script src="lib/onsenui/js/onsenui.min.js"></script>
     </head>
 
     <body>
-        <div id="main">
-            <div id="header">
-                <p id="mp1">
-                <h1 id="template_body_title">People Counter</h1>
-                <img class="selector" id="webcamimg" src="lib/webqr/vid.png" onclick="setwebcam()" align="left" style="display: none;" />
-                <img class="selector" id="qrimg" src="lib/webqr/cam.png" onclick="setimg()" align="right" style="display: none;"/>
-                </p>
-            </div>
-            <div id="mainbody">
-                <div id="outdiv"></div>
-                <div id="controller">
-                    <label>
-                        <input type="checkbox" name="counter_enable" id="counter_enable" disabled="disabled">
-                        Enable Counter
-                    </label>
-                    <a href="" target="report" id="template_report_url">Report</a>
-                    <div id="people_counter">0</div>
-                </div>
-                <pre id="log"></pre>
-            </div>
-            <div id="footer">
-                <h5 align="center">Copyright &copy; 2017 <a target="_blank" href="http://blog.pulipuli.info">布丁布丁吃什麼？</a></h5>
-            </div>
-        </div>
+        <ons-page id="main">
+            <ons-toolbar>
+                <div class="center" id="template_body_title">People Counter</div>
+            </ons-toolbar>
+            <ons-row align="center" id="outdiv"></ons-row>
+            <ons-row>
+                <ons-col>
+                    <ons-switch checked disabled id="counter_enable"></ons-switch>
+                </ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col id="mainbody"></ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col id="counter_enable_message" class="visible">
+                    Let your camera read the QR code to enable the counter.
+                </ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>
+                    <ons-button id="people_counter" modifier="quiet">0</ons-button>
+                </ons-col>
+            </ons-row>
+            <ons-row align="center">
+                <ons-col>
+                    <a href="" target="report" id="template_report_url"><ons-button modifier="">Detail Report</ons-button></a>
+                </ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>
+                    <pre id="log"></pre>
+                </ons-col>
+            </ons-row>
+        </ons-page>
+        
         <canvas id="qr-canvas" width="800" height="600"></canvas>
+        <span id="webcamimg" style="display: none;" />
+        <span id="qrimg" style="display: none;"/>
     </body>
 </html>
