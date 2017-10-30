@@ -17,7 +17,14 @@ CONFIG = {
          * 預設是否啟動
          * @type Boolean
          */
-        "default_enable": false
+        "default_enable": false,
+        
+        "zoom": {
+            width: 100,
+            height: 100,
+            x_offset: 250,
+            y_offset: 185
+        }
     },
     "template": {
         "header_title": "People Counter",
