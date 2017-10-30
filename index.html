@@ -33,7 +33,12 @@
             <ons-toolbar>
                 <div class="center" id="template_body_title">People Counter</div>
             </ons-toolbar>
-            <ons-row align="center" id="outdiv"></ons-row>
+            <ons-row align="center" >
+                <ons-col>
+                    <div id="outdiv"></div>
+                    <canvas id="qr-canvas" width="320" height="240"></canvas>
+                </ons-col>
+            </ons-row>
             <ons-row>
                 <ons-col>
                     <ons-switch disabled id="counter_enable"></ons-switch>
@@ -69,7 +74,6 @@
             </ons-row>
         </ons-page>
         
-        <canvas id="qr-canvas" width="800" height="600"></canvas>
         <span id="webcamimg" style="display: none;" />
         <span id="qrimg" style="display: none;"/>
     </body>
