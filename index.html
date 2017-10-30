@@ -1,0 +1,58 @@
+
+<html>
+    <head>
+        <meta name="description" content="QR Code People Counter" />
+        <meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript" />
+        <meta name="language" content="English" />
+        <meta name="copyright" content="布丁布丁吃布丁 (c) 2017" />
+        <meta name="Revisit-After" content="1 Days"/>
+        <meta name="robots" content="index, follow"/>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script src="lib/jquery/jquery.js"></script>
+        <script src="people-counter.js"></script>
+
+        <title class="">Web QR</title>
+
+        <style type="text/css">
+        </style>
+        <link href='style.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="lib/webqr/llqrcode.js"></script>
+        <script type="text/javascript" src="lib/webqr/webqr.js"></script>
+
+
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="header">
+                <p id="mp1">
+                    QR Code scanner
+                    <img class="selector" id="webcamimg" src="lib/webqr/vid.png" onclick="setwebcam()" align="left" style="display: none;" />
+                    <img class="selector" id="qrimg" src="lib/webqr/cam.png" onclick="setimg()" align="right" style="display: none;"/>
+                </p>
+            </div>
+            <div id="mainbody">
+                <table class="tsel" border="0" width="100%">
+                    <tr>
+                        <td valign="top" align="center" width="50%">
+                            <table class="tsel" border="0">
+                                <td colspan="2" align="center">
+                                    <div id="outdiv">
+                                    </div></td></tr>
+                </table>
+                </td>
+                </tr>
+                <tr><td colspan="3" align="center">
+                        <div id="result"></div>
+                    </td></tr>
+                </table>
+            </div>&nbsp;
+            <div id="footer">
+                <h5 align="center">Copyright &copy; 2017 <a target="_blank" href="http://blog.pulipuli.info">布丁布丁吃什麼？</a></h5>
+            </div>
+        </div>
+        <canvas id="qr-canvas" width="800" height="600"></canvas>
+    </body>
+</html>
